@@ -416,8 +416,29 @@ UpdateTray() {
     A_IconTip := APP_NAME "`nSuspended – click to resume"
   } else {
     SetTrayStateIcon("Active")
-    A_IconTip := APP_NAME "`nActive – " currentHotkey
+    A_IconTip := APP_NAME "`nActive – " FormatHotkey(currentHotkey)
   }
+}
+
+FormatHotkey(hotkeyName) {
+  label := ""
+  for modifier in [["^", "Ctrl"], ["!", "Alt"], ["+", "Shift"], ["#", "Win"]] {
+    symbol := modifier[1]
+    name := modifier[2]
+    if !InStr(hotkeyName, symbol)
+      continue
+    label .= (label = "" ? "" : " + ") name
+    hotkeyName := StrReplace(hotkeyName, symbol)
+  }
+
+  hotkeyName := RegExReplace(hotkeyName, "[<>*~$]")
+  try keyName := GetKeyName(hotkeyName)
+  catch
+    keyName := hotkeyName
+  if label != "" && keyName != ""
+    label .= " + "
+  label .= keyName
+  return label
 }
 
 SetTrayStateIcon(state) {
