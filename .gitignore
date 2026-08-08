@@ -1,5 +1,6 @@
 # Build tools
 .cache/
+.ahk-build/
 .tools/
 build/
 dist/

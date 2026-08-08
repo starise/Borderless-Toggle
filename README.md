@@ -42,4 +42,7 @@ pnpm run setup
 pnpm run build
 ```
 
+`setup` installs the pinned managed AutoHotkey toolchain. `build` regenerates the
+project icons, compiles the executable, and creates a deterministic ZIP archive.
+
 The archive is created in `dist/`.

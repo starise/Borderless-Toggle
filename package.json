@@ -3,22 +3,24 @@
   "author": "Andrea Brandi",
   "version": "1.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "setup": "node scripts/setup.mjs",
-    "clean": "node scripts/clean.mjs",
-    "compile": "node scripts/compile.mjs",
+    "setup": "ahk-build setup",
+    "clean": "ahk-build clean",
+    "compile": "ahk-build compile",
     "icons": "node scripts/icons.mjs",
-    "zip": "node scripts/zip.mjs",
-    "build": "pnpm run clean && pnpm run icons && pnpm run compile && pnpm run zip",
-    "release": "node scripts/release.mjs"
+    "zip": "ahk-build zip",
+    "build": "ahk-build build",
+    "release": "ahk-build release",
+    "doctor": "ahk-build doctor"
   },
   "devDependencies": {
+    "@alysoid/ahk-build": "0.1.0",
     "icon-gen": "^5.0.0",
     "prettier": "3.8.4",
-    "sharp": "^0.35.1",
-    "yazl": "^3.3.1"
+    "sharp": "^0.35.1"
   },
   "volta": {
     "node": "24.16.0"
