@@ -30,7 +30,7 @@ export default defineConfig({
   },
   release: {
     repository: "starise/borderless-toggle",
-    tag: "${packageVersion}",
+    tag: "v${packageVersion}",
     title: "Release v${packageVersion}",
     notes: "Release version ${packageVersion}",
   },
